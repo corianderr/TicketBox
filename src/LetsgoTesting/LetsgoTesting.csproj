@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\LetsGo.DAL\LetsGo.DAL.csproj" />
-    <ProjectReference Include="..\src\LetsGo.UI\LetsGo.UI.csproj" />
+    <ProjectReference Include="..\LetsGo.DAL\LetsGo.DAL.csproj" />
+    <ProjectReference Include="..\LetsGo.UI\LetsGo.UI.csproj" />
   </ItemGroup>
 
 </Project>
