@@ -87,18 +87,15 @@ namespace LetsGo.UI.Controllers
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(QR, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            byte[] data = default(byte[]);
-            OptimizedMemoryStream sampleStream = new OptimizedMemoryStream();
-            qrCodeImage.Save(sampleStream, System.Drawing.Imaging.ImageFormat.Bmp);
+            BitmapByteQRCode qrCode = new BitmapByteQRCode(qrCodeData);
+            var qrCodeImage = qrCode.GetGraphic(20);
+            OptimizedMemoryStream sampleStream = new OptimizedMemoryStream(qrCodeImage);
             return sampleStream;
         }
         public IActionResult GetQR(string QR)
         {
             var data = GetQRStream(QR).ToArray();
             return File(data, "image/jpeg");
-
         }
         public IActionResult GetPDF(string QR)
         {
