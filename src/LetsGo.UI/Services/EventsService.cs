@@ -33,7 +33,7 @@ namespace LetsGo.UI.Services
             {
                 string name = GenerateCode() + Path.GetExtension(eventView.File.FileName);
                 pathImage = "/events/" + name;
-                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + pathImage), FileMode.Create))
+                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + pathImage), FileMode.Create))
                     await eventView.File.CopyToAsync(fileStream);
             }
             else pathImage = "/images/gradient.jpeg";
@@ -167,10 +167,10 @@ namespace LetsGo.UI.Services
 
             if (model.File != null)
             {
-                File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + @event.PosterImage));
+                File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + @event.PosterImage));
                 string filename = GenerateCode() + Path.GetExtension(model.File.FileName);
                 filename = "/events/" + filename;
-                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + filename), FileMode.Create))
+                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + filename), FileMode.Create))
                     await model.File.CopyToAsync(fileStream);
                 @event.PosterImage = filename;
             }            

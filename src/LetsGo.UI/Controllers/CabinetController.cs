@@ -133,7 +133,7 @@ namespace LetsGo.UI.Controllers
             else
             {
                 avatar = "/avatars/" + EventsService.GenerateCode() + Path.GetExtension(userModel.Avatar.FileName);
-                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + avatar), FileMode.Create))
+                using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + avatar), FileMode.Create))
                     await userModel.Avatar.CopyToAsync(fileStream);
             }
             bool newEmail = currentUser.Email != userModel.Email;

@@ -92,7 +92,7 @@ namespace LetsGo.UI.Controllers
                 if (result.Succeeded)
                 {
                     if (pathImage != "/images/default_avatar.png")
-                        using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + pathImage), FileMode.Create))
+                        using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + pathImage), FileMode.Create))
                             await model.Avatar.CopyToAsync(fileStream);
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(admin);
@@ -164,7 +164,7 @@ namespace LetsGo.UI.Controllers
                     if (result.Succeeded)
                     {
                         if (pathImage != "/images/default_avatar.png")
-                            using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\" + pathImage), FileMode.Create))
+                            using (var fileStream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + pathImage), FileMode.Create))
                                 await model.Avatar.CopyToAsync(fileStream);
 
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
